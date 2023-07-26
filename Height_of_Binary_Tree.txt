@@ -1,3 +1,5 @@
+#height of the binary trees can be found by this code method :->
+
 int height(Node*root)
 {
     if (root==NULL)
