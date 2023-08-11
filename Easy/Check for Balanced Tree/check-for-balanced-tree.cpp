@@ -86,9 +86,39 @@ Node* buildTree(string str) {
 
 
 // } Driver Code Ends
+// class Solution{
+//     public:
+//     vector<pair<int, int>>v;
+//     int storeHeight(Node*root)
+//     {
+//         if(!root)return 0;
+        
+//         int left = storeHeight(root->left);
+//         int right = storeHeight(root->right);
+        
+//         pair<int,int>p;
+//         p={left , right};
+        
+//         v.push_back(p);
+//         return 1+max(left , right);
+        
+//     }
+//     bool isBalanced(Node *root)
+//     {
+//        int x = storeHeight(root);
+//        for(int i = 0 ; i < v.size(); i++)
+//        {
+//            if(abs(v[i].first-v[i].second)>1)
+//            return false;
+//        }
+//        return true;
+//     }
+// };
+
+
 class Solution{
     public:
-    vector<pair<int, int>>v;
+    int f  = 1 ;
     int storeHeight(Node*root)
     {
         if(!root)return 0;
@@ -96,24 +126,19 @@ class Solution{
         int left = storeHeight(root->left);
         int right = storeHeight(root->right);
         
-        pair<int,int>p;
-        p={left , right};
-        
-        v.push_back(p);
+        if(abs(left-right)>1)
+        f = 0;
         return 1+max(left , right);
         
     }
     bool isBalanced(Node *root)
     {
        int x = storeHeight(root);
-       for(int i = 0 ; i < v.size(); i++)
-       {
-           if(abs(v[i].first-v[i].second)>1)
-           return false;
-       }
-       return true;
+       return f;
+       
     }
 };
+
 
 
 //{ Driver Code Starts.
