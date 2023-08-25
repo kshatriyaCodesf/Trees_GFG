@@ -102,14 +102,16 @@ public:
     void leftTree(Node*root , vector<int>&ans)
     {
         if(!root)return ;
+        if(!root->left and !root->right)return ;
+        ans.push_back(root->data);
         if(root->left)
         {
-            ans.push_back(root->data);
+           
             leftTree(root->left, ans);
         }
         else if(root->right)
         {
-            ans.push_back(root->data);
+            
             leftTree(root->right , ans);
         }
     }
