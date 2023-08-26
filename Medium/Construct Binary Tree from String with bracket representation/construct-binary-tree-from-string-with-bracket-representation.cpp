@@ -65,17 +65,17 @@ public:
             num = num*10+x;
             si++;
         }
-        si--;
+        // si--;
         Node*root = new Node(num);
         int y = -1;
-        if(si+1<=ei and str[si+1]=='(')
+        if(si<=ei and str[si]=='(')
         {
-            y = mp[si+1];
+            y = mp[si];
         }
         
             if(y!=-1)
             {
-                root->left = rec(str , si+2 , y-1);
+                root->left = rec(str , si+1 , y-1);
                 root->right = rec(str , y+2 , ei-1);
             }
             return root;
