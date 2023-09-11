@@ -92,7 +92,7 @@ class Solution {
         if(count==k)
         {
             z=root->data;
-            k = INT_MIN;
+            count++;
             return ;
         }
         count++;
@@ -103,7 +103,10 @@ class Solution {
        helper(root , K);
        return z ;
     }
-};
+
+};    
+    /*here we are passing the variable k as a reference because we want to change the value of the variable 
+    using the function*/
 
 //{ Driver Code Starts.
 int main() {
